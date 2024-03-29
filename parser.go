@@ -9,6 +9,7 @@ type RejectReason struct {
 	OriginalRecipient string
 	Status            string
 	DiagnosticCode    string
+	ArrivalDate       string
 }
 
 func IsRejected(body string) bool {
@@ -61,6 +62,14 @@ func GetReason(body []byte) RejectReason {
 	}
 	rr.DiagnosticCode = strings.TrimSuffix(rr.DiagnosticCode, "\n")
 	rr.DiagnosticCode = strings.TrimSuffix(rr.DiagnosticCode, "\r")
+
+	re = regexp.MustCompile(`Arrival-Date: .*`)
+	rr.ArrivalDate = string(re.Find(body))
+	if len(rr.ArrivalDate) > 14 {
+		rr.ArrivalDate = string(rr.ArrivalDate[14:])
+	}
+	rr.ArrivalDate = strings.TrimSuffix(rr.ArrivalDate, "\n")
+	rr.ArrivalDate = strings.TrimSuffix(rr.ArrivalDate, "\r")
 
 	return rr
 }

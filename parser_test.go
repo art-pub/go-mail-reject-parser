@@ -63,7 +63,9 @@ func TestGetReason(t *testing.T) {
 	eor := "rfc822;someone@somewhere.domain"
 	es := "5.0.0"
 	edc := "smtp; 550 Requested action not taken: mailbox unavailable\n..."
+	ead := "Thu, 28 Mar 2024 18:00:28 +0100 (CET)"
 	assert.Equal(t, eor, r.OriginalRecipient, "expected "+eor+", but got "+r.OriginalRecipient+"!")
 	assert.Equal(t, es, r.Status, "expected "+eor+", but got "+r.Status+"!")
 	assert.Equal(t, edc, r.DiagnosticCode, "expected "+eor+", but got "+r.DiagnosticCode+"!")
+	assert.Equal(t, ead, r.ArrivalDate, "expected "+ead+", but got "+r.ArrivalDate+"!")
 }

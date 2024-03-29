@@ -4,6 +4,7 @@ When a mail has been rejected, the body contains information about the reason. T
 > [!WARNING]
 **Attention:** The use is expressly at your own risk.
 
+
 ### Requirements
 
 There are currently no requirements. [github.com/emersion/go-imap](https://github.com/emersion/go-imap) is recommended to access your IMAP accounts with go.
