@@ -4,6 +4,12 @@ When a mail has been rejected, the body contains information about the reason. T
 > [!WARNING]
 **Attention:** The use is expressly at your own risk.
 
+<<<<<<< HEAD
+=======
+> [!CAUTION]
+This module has been designed to return the reject values for the first rejected recipient in the mails. You can easily adjust the results of the regexp in the parser if you need to get the results for more than one recipient.
+
+>>>>>>> 8f04fce30126f40c83a17edda67be45f033633e0
 
 ### Requirements
 
